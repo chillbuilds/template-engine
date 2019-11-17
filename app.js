@@ -6,6 +6,7 @@ const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const teamMembers = [];
 const ids = [];
+var numOfEmployees = 0;
 
 inquirer
   .prompt([
@@ -28,14 +29,45 @@ inquirer
   ])
 
   .then(function (data) {
+      numOfEmployees = numOfEmployees + 1;
+    const x = new employee(data.name, data.email, data.position, numOfEmployees);
+    console.log(x);
     if (data.position === "Manager") {
-        console.log("Manager")
+        inquirer
+        .prompt([
+            {
+                type: "number",
+                name: "officenum",
+                message: "What Is Your Office Number?"
+            }
+        ]).then(function(data){
+            //create manager from class
+            addQuery();
+        })
       } else if (data.position === "Engineer") {
-        console.log("Engineer")
+        inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "github",
+                message: "What Is Your Github Username?"
+            }
+        ]).then(function(data){
+            //create engineer from class
+            addQuery();
+        })
       } else if(data.position === "Intern") {
-        console.log("Intern")}
-        //generate from class
-        addQuery();
+        inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "school",
+                message: "What College Did You Attend?"
+            }
+        ]).then(function(data){
+            //create intern from class
+            addQuery();
+        })}
 
 })
 function addQuery(){
@@ -54,6 +86,7 @@ inquirer
 })}
 
 function addEmployee(){
+    numOfEmployees = numOfEmployees + 1;
     inquirer
   .prompt([
       {
@@ -74,7 +107,42 @@ function addEmployee(){
       }
   ])
   .then(function(data){
-      addQuery();
+    if (data.position === "Manager") {
+        inquirer
+        .prompt([
+            {
+                type: "number",
+                name: "officenum",
+                message: "What Is The Employee's Office Number?"
+            }
+        ]).then(function(data){
+            //create manager from class
+            addQuery();
+        })
+      } else if (data.position === "Engineer") {
+        inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "github",
+                message: "What Is The Employee's Github Username?"
+            }
+        ]).then(function(data){
+            //create engineer from class
+            addQuery();
+        })
+      } else if(data.position === "Intern") {
+        inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "school",
+                message: "What College Did The Employee's Attend?"
+            }
+        ]).then(function(data){
+            //create intern from class
+            addQuery();
+        })}
   })
 }
 
