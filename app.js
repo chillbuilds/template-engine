@@ -1,5 +1,9 @@
 const inquirer = require("inquirer");
 const jest = require("jest");
+const employee = require("./lib/employee");
+const manager = require("./lib/manager");
+const engineer = require("./lib/engineer");
+const intern = require("./lib/intern");
 const teamMembers = [];
 const ids = [];
 
@@ -18,7 +22,7 @@ inquirer
       {
       type: "list",
       name: "position",
-      message: "What's Your Position Within The Company?",
+      message: "What's Your Position At The Company?",
       choices: ["Manager", "Engineer", "Intern"]
       }
   ])
