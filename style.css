@@ -1,0 +1,62 @@
+body {
+    background: #0075C4;
+}
+
+#header {
+    padding: 50px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 10px solid rgb(0, 94, 177);
+    text-align: center;
+    font-size: 48px;
+    color: rgba(0, 0, 0, .4);
+    background: #0267C1;
+}
+
+.icon {
+    position: relative;
+    width: 36px;
+    margin-left: 10px;
+    padding-left: 6px;
+    margin-right: 10px;
+    top: -4px;
+    opacity: 0.4;
+}
+
+.employee {
+    position: relative;
+    float: left;
+    width: 400px;
+}
+
+.name {
+    border-bottom: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 16px;
+    padding-bottom: 0px;
+    font-size: 36px;
+    background: #D65108;
+    color: rgba(0, 0, 0, .4)
+}
+
+.position {
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 30px;
+    background: #D65108;
+    color: rgba(0, 0, 0, .4)
+}
+
+.employeeInfo {
+    background: #FCAB10;
+    padding: 14px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.text {
+    color: sienna;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
