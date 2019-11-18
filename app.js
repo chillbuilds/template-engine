@@ -4,7 +4,9 @@ const Employee = require("./lib/employee");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
-const teamMembers = [];
+const managerArr = [];
+const engineerArr = [];
+const internArr = [];
 var id = 0;
 var employeeData;
 
@@ -42,9 +44,8 @@ inquirer
             }
         ]).then(function(data){
             //create manager from class
-            const x = new Manager(employeeData.name, employeeData.email, employeeData.position, id, data.officenum);
-            teamMembers.push(x);
-            console.log(teamMembers);
+            const x = new Manager(employeeData.name, id, employeeData.email, data.officenum);
+            managerArr.push(x);
             addQuery();
         })
       } else if (data.position === "Engineer") {
@@ -57,9 +58,8 @@ inquirer
             }
         ]).then(function(data){
             // create engineer from class
-            const x = new Engineer(employeeData.name, employeeData.email, employeeData.position, id, data.github);
-            teamMembers.push(x);
-            console.log(teamMembers);
+            const x = new Engineer(employeeData.name, id, employeeData.email, data.github);
+            engineerArr.push(x);
             addQuery();
         })
       } else if(data.position === "Intern") {
@@ -72,9 +72,8 @@ inquirer
             }
         ]).then(function(data){
             // create intern from class
-            const x = new Intern(employeeData.name, employeeData.email, employeeData.position, id, data.school);
-            teamMembers.push(x);
-            console.log(teamMembers);
+            const x = new Intern(employeeData.name, id, employeeData.email, data.school);
+            internArr.push(x);
             addQuery();
         })}
 
@@ -127,9 +126,8 @@ function addEmployee(){
             }
         ]).then(function(data){
             //create manager from class
-            const x = new Manager(employeeData.name, employeeData.email, employeeData.position, id, data.officenum);
-            teamMembers.push(x);
-            console.log(teamMembers);
+            const x = new Manager(employeeData.name, id, employeeData.email, data.officenum);
+            managerArr.push(x);
             addQuery();
         })
       } else if (data.position === "Engineer") {
@@ -142,9 +140,8 @@ function addEmployee(){
             }
         ]).then(function(data){
             //create engineer from class
-            const x = new Engineer(employeeData.name, employeeData.email, employeeData.position, id, data.github);
-            teamMembers.push(x);
-            console.log(teamMembers);
+            const x = new Engineer(employeeData.name, id, employeeData.email, data.github);
+            engineerArr.push(x);
             addQuery();
         })
       } else if(data.position === "Intern") {
@@ -157,9 +154,8 @@ function addEmployee(){
             }
         ]).then(function(data){
             //create intern from class
-            const x = new Intern(employeeData.name, employeeData.email, employeeData.position, id, data.school);
-            teamMembers.push(x);
-            console.log(teamMembers);
+            const x = new Intern(employeeData.name, id, employeeData.email, data.school);
+            internArr.push(x);
             addQuery();
         })}
   })
