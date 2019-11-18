@@ -1,12 +1,12 @@
 const inquirer = require("inquirer");
 const jest = require("jest");
-const employee = require("./lib/employee");
-const manager = require("./lib/manager");
-const engineer = require("./lib/engineer");
-const intern = require("./lib/intern");
+const Employee = require("./lib/employee");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 const teamMembers = [];
-const ids = [];
-var numOfEmployees = 0;
+var id = 0;
+var employeeData;
 
 inquirer
   .prompt([
@@ -29,9 +29,9 @@ inquirer
   ])
 
   .then(function (data) {
-      numOfEmployees = numOfEmployees + 1;
-    const x = new employee(data.name, data.email, data.position, numOfEmployees);
-    console.log(x);
+    employeeData = data;
+      id = id + 1;
+    console.log(teamMembers);
     if (data.position === "Manager") {
         inquirer
         .prompt([
@@ -42,6 +42,9 @@ inquirer
             }
         ]).then(function(data){
             //create manager from class
+            const x = new Manager(employeeData.name, employeeData.email, employeeData.position, id, data.officenum);
+            teamMembers.push(x);
+            console.log(teamMembers);
             addQuery();
         })
       } else if (data.position === "Engineer") {
@@ -53,7 +56,10 @@ inquirer
                 message: "What Is Your Github Username?"
             }
         ]).then(function(data){
-            //create engineer from class
+            // create engineer from class
+            const x = new Engineer(employeeData.name, employeeData.email, employeeData.position, id, data.github);
+            teamMembers.push(x);
+            console.log(teamMembers);
             addQuery();
         })
       } else if(data.position === "Intern") {
@@ -65,7 +71,10 @@ inquirer
                 message: "What College Did You Attend?"
             }
         ]).then(function(data){
-            //create intern from class
+            // create intern from class
+            const x = new Intern(employeeData.name, employeeData.email, employeeData.position, id, data.school);
+            teamMembers.push(x);
+            console.log(teamMembers);
             addQuery();
         })}
 
@@ -86,7 +95,7 @@ inquirer
 })}
 
 function addEmployee(){
-    numOfEmployees = numOfEmployees + 1;
+    id = id + 1;
     inquirer
   .prompt([
       {
@@ -107,6 +116,7 @@ function addEmployee(){
       }
   ])
   .then(function(data){
+    employeeData = data;
     if (data.position === "Manager") {
         inquirer
         .prompt([
@@ -117,6 +127,9 @@ function addEmployee(){
             }
         ]).then(function(data){
             //create manager from class
+            const x = new Manager(employeeData.name, employeeData.email, employeeData.position, id, data.officenum);
+            teamMembers.push(x);
+            console.log(teamMembers);
             addQuery();
         })
       } else if (data.position === "Engineer") {
@@ -129,6 +142,9 @@ function addEmployee(){
             }
         ]).then(function(data){
             //create engineer from class
+            const x = new Engineer(employeeData.name, employeeData.email, employeeData.position, id, data.github);
+            teamMembers.push(x);
+            console.log(teamMembers);
             addQuery();
         })
       } else if(data.position === "Intern") {
@@ -141,6 +157,9 @@ function addEmployee(){
             }
         ]).then(function(data){
             //create intern from class
+            const x = new Intern(employeeData.name, employeeData.email, employeeData.position, id, data.school);
+            teamMembers.push(x);
+            console.log(teamMembers);
             addQuery();
         })}
   })
