@@ -1,5 +1,4 @@
-module.exports = function generateHTML(managerArr, engineerArr, internArr) {
-    return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -81,64 +80,75 @@ module.exports = function generateHTML(managerArr, engineerArr, internArr) {
 
 <div class="container">
 <div class="row">
-${managerArr
-            .map(employee =>
-                `
 <div class="employee">
-    <div class="name">${employee.name}</div>
+    <div class="name">Farnsworth</div>
     <div class="position">
         <img class="icon" src="../icons/coffee.png">Manager
     </div>
     <div class="employeeInfo">
-        <div class="id text">ID: ${employee.id}</div>
-        <div class="email text">Email: <br>${employee.email}</div>
-        <div class="relevantInfo text">Office Number: ${employee.officenum}</a></div>
+        <div class="id text">ID: 1</div>
+        <div class="email text">Email: <br>scienceboi@planetexpress.com</div>
+        <div class="relevantInfo text">Office Number: 42</a></div>
     </div>
 </div>
-`.trim()
-            )
-            .join("")}
 
 
-${engineerArr
-            .map(employee =>
-                `
 <div class="employee">
-    <div class="name">${employee.name}</div>
+    <div class="name">Leela</div>
     <div class="position">
         <img class="icon" src="../icons/gear.png">Engineer
     </div>
     <div class="employeeInfo">
-        <div class="id text">ID: ${employee.id}</div>
-        <div class="email text">Email: <br>${employee.email}</div>
-        <div class="relevantInfo text">Github: <a href="https://github.com/${employee.github}"> ${employee.github}</a></div>
+        <div class="id text">ID: 2</div>
+        <div class="email text">Email: <br>monobrow@planetexpress.com</div>
+        <div class="relevantInfo text">Github: <a href="https://github.com/captaincyclops"> captaincyclops</a></div>
+    </div>
+</div><div class="employee">
+    <div class="name">Fry</div>
+    <div class="position">
+        <img class="icon" src="../icons/gear.png">Engineer
+    </div>
+    <div class="employeeInfo">
+        <div class="id text">ID: 3</div>
+        <div class="email text">Email: <br>fryguy@planetexpress.com</div>
+        <div class="relevantInfo text">Github: <a href="https://github.com/blastfromthepast"> blastfromthepast</a></div>
+    </div>
+</div><div class="employee">
+    <div class="name">Bender</div>
+    <div class="position">
+        <img class="icon" src="../icons/gear.png">Engineer
+    </div>
+    <div class="employeeInfo">
+        <div class="id text">ID: 4</div>
+        <div class="email text">Email: <br>crimelord@planetexpress.com</div>
+        <div class="relevantInfo text">Github: <a href="https://github.com/shinymetalsass"> shinymetalsass</a></div>
     </div>
 </div>
-`.trim()
-            )
-            .join("")}
     
-    ${internArr
-            .map(employee =>
-                `
     <div class="employee">
-        <div class="name">${employee.name}</div>
+        <div class="name">Amy</div>
         <div class="position">
             <img class="icon" src="../icons/graduate.png">Intern
         </div>
         <div class="employeeInfo">
-            <div class="id text">ID: ${employee.id}</div>
-            <div class="email text">Email: <br>${employee.email}</div>
-            <div class="relevantInfo text">School: ${employee.school}</a></div>
+            <div class="id text">ID: 5</div>
+            <div class="email text">Email: <br>mswong@planetexpress.com</div>
+            <div class="relevantInfo text">School: Mars University</a></div>
+        </div>
+    </div><div class="employee">
+        <div class="name">Zoidberg</div>
+        <div class="position">
+            <img class="icon" src="../icons/graduate.png">Intern
+        </div>
+        <div class="employeeInfo">
+            <div class="id text">ID: 6</div>
+            <div class="email text">Email: <br>medman@planetexpress.com</div>
+            <div class="relevantInfo text">School: Not Disclosed</a></div>
         </div>
     </div>
-    `.trim()
-            )
-            .join("")}
 </div>
 </div>
 <div>
     
 </body>
-</html>`
-};
+</html>

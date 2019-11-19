@@ -168,9 +168,10 @@ function addEmployee(){
 
 
 function writeHTML(generateHTML){
-    fs.writeFile("./output/team.html", generateHTML, function (error){
+    fs.writeFile("./output/engineering-team.html", generateHTML, function (error){
         if(error) {console.log(error)
         }
+        console.log(`\n\n****** HTML File Created ******\n\n`)
     });
   };
 
