@@ -1,14 +1,17 @@
 const inquirer = require("inquirer");
 const jest = require("jest");
+const fs = require("fs");
 const Employee = require("./lib/employee");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const generateHTML = require("./templates/generateHTML");
 const managerArr = [];
 const engineerArr = [];
 const internArr = [];
 var id = 0;
 var employeeData;
+
 
 inquirer
   .prompt([
@@ -33,7 +36,6 @@ inquirer
   .then(function (data) {
     employeeData = data;
       id = id + 1;
-    console.log(teamMembers);
     if (data.position === "Manager") {
         inquirer
         .prompt([
@@ -90,6 +92,9 @@ inquirer
   ]).then(function(data){
       if(data.addmore === "Yes"){
           addEmployee();
+      }else{
+          generateHTML(managerArr, engineerArr, internArr);
+          writeHTML(generateHTML(managerArr, engineerArr, internArr));
       }
 })}
 
@@ -161,3 +166,27 @@ function addEmployee(){
   })
 }
 
+
+function writeHTML(generateHTML){
+    fs.writeFile("./output/team.html", generateHTML, function (error){
+        if(error) {console.log(error)
+        }
+    });
+  };
+
+// function generateHTML(){
+//     fs.readFile(`./templates/header.html`, "utf8", function(error, data) {
+//         if (error) {
+//             return console.log(error);}
+//           // fs.readFileSync(`./templates/employee.html`, "utf8", function(error, resp){
+//               //     if (error) {
+//                   //         return console.log(error);}
+//                   //     console.log(resp);
+//                   //     x = resp
+//                   // });
+//         fs.writeFile(`./output/test.html`, data, function (err) {
+//           if (err) console.log(err);
+//             console.log("File written successfully");
+//           });
+//         });
+// }
